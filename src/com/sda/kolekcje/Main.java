@@ -34,24 +34,25 @@ public class Main {
         Pozytywny przypadek- Przydatny do wstępnie posortowanych danych O(n)
 
 */
-
-        // Implementacja
-
     }
 
     public static void sort(int[] arr) {
-        int n = arr.length;
-        int current;
+        int n = arr.length;  // okreslamy dlugosc naszej tablicy
+        int current;         //
         int otherIndex;
 
-        for (int i = 1; i < n; i++){
-             current = arr[i];
-             otherIndex = i;
-             while (otherIndex > 0 && current< arr[otherIndex - 1]){
-                 arr[otherIndex] = arr[otherIndex -1];
-                 otherIndex--;
-             }
-             arr[otherIndex] = current;
+        for (int i = 1; i < n; i++) { // tworzymy petle for, aby przejsc cala tablice.
+            // Poczatek petli od miejsca pierwszego, bo pobieramy element do wstawienia w miejsce uporzdkowane z elementu wiekszego o 1 niz obecna iteracja
+            // wiec zaczynajac od indexu 1, iteracja bedzie 0, a my zawsze bedziemy o 1 element przed nia
+            // Petle kontynuujemy do konca tablicy
+            // po zakoczeniu inkrementujemy o 1
+            current = arr[i];  // zapamietujemy obecny element, ktory bedzie pobierany z indexu o  1 wiekszego od obecnej iteracji, czyli wartosc spod indexu i
+            otherIndex = i;    // index innego elementu. Tworzymy, zeby moc porownywac zmienna current. Wskazuje na poczatku to samo miejsce co nasz licznik
+            while (otherIndex > 0 && current < arr[otherIndex - 1]) { // 1 warunek: sprawdzamy czy nie doszlismy do poczatku czesci uporzadkowanej. 2 warunek: Element poprzedzajacy czyli wartosc spod indexu otherIndex ale o 1 mniejsza czyli- mniejszy od wartosci pod indexem otherIndex -1
+                arr[otherIndex] = arr[otherIndex - 1]; // jesli warunek jest spelniony, to nadpisujemy element po prawej stronie elementem po lewej stronie
+                otherIndex--; // zmniejszamy index
+            }
+            arr[otherIndex] = current; // nasz obecny element laduje na odpowiadajacej mu pozycji
         }
     }
 }
