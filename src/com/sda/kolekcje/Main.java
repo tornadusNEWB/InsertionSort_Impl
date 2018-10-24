@@ -19,7 +19,7 @@ public class Main {
         3: Porownujemy 4 z 5. Element jest na odpowiedniej pozycji, reszta bez zmian
         4: pobieramy element spod indexu o 1 wiekszy czyli 7. Porownujemy 7 z 5.
         5: pobieramy element spod indexu o 1 wiekszy czyli 1. Porownjemy 1 z 7. 1 jest mnijesza od 7. Przepisujemy element wiekszy o 1 w prawo. itd.
-        6: pobieramy 9. Powownujemy 9 z 7. 
+        6: pobieramy 9. Powownujemy 9 z 7.
 
         0: 4| 3 2 5 7 1 9
         1: 3 4| 2 5 7 1 9
@@ -34,5 +34,24 @@ public class Main {
         Pozytywny przypadek- Przydatny do wstępnie posortowanych danych O(n)
 
 */
+
+        // Implementacja
+
+    }
+
+    public static void sort(int[] arr) {
+        int n = arr.length;
+        int current;
+        int otherIndex;
+
+        for (int i = 1; i < n; i++){
+             current = arr[i];
+             otherIndex = i;
+             while (otherIndex > 0 && current< arr[otherIndex - 1]){
+                 arr[otherIndex] = arr[otherIndex -1];
+                 otherIndex--;
+             }
+             arr[otherIndex] = current;
+        }
     }
 }
